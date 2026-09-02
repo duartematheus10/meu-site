@@ -1,0 +1,317 @@
+/* 1. TIPOGRAFIA: Importando fontes modernas do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@300;400;600&display=swap');
+
+/* 2. TEMA "DEVELOPER": Fundo escuro e animação de entrada global */
+body {
+    background-image: url(../img/fundoo.png); /* Mantém a sua imagem de fundo */
+    background-color: #0f111a; /* Fundo escuro base (fallback) */
+    background-blend-mode: overlay; /* Escurece a imagem de fundo para o texto brilhar */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif; /* Fonte base do site */
+    color: #e0e6ed; /* Texto claro (quase branco) */
+    margin: 0;
+}
+
+/* NOVA IDEIA: Animação suave ao carregar a página */
+@keyframes entradaSuave {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body > * {
+    animation: entradaSuave 0.8s ease-out forwards;
+}
+
+/* Títulos com fonte de terminal/código */
+h1, h2, h3 {
+    font-family: 'Fira Code', monospace;
+    color: #00bcd4; /* Ciano estilo tech */
+}
+
+header {
+    text-align: center; 
+    font-size: 20px;
+    margin: 40px 0 20px 0;
+}
+
+/* 3. NAVBAR EM FLEXBOX E GLASSMORPHISM */
+.links ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+    display: flex; /* Alinha os links na horizontal */
+    justify-content: center; /* Centraliza no ecrã */
+    gap: 40px; /* Espaçamento entre os links */
+    background: rgba(15, 17, 26, 0.7); /* Fundo escuro translúcido */
+    backdrop-filter: blur(10px); /* Efeito de vidro (Glassmorphism) */
+    border-bottom: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+.links li a {
+    text-decoration: none;
+    color: #e0e6ed;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.links li a:hover {
+    color: #00bcd4;
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.6); /* Brilho ao passar o rato */
+}
+
+/* Linhas separadoras elegantes */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.5), transparent);
+    margin: 20px auto 40px auto;
+    width: 60%;
+}
+
+/* 4. MICRO-INTERAÇÕES NA FOTO DE PERFIL */
+.foto-perfil {
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin: 30px auto; 
+    border: 4px solid #00bcd4; 
+    display: block; 
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.foto-perfil:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente ao passar o rato */
+    box-shadow: 0 0 35px rgba(0, 188, 212, 0.5); /* Intensifica o brilho */
+}
+
+.texto {
+    margin: 0 auto;
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    color: #a0aec0; /* Cinza claro elegante */
+}
+
+.cursos {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* 5. CARTÕES MODERNOS PARA A LISTA DE CURSOS */
+.texto ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cartões desçam de linha se o ecrã for pequeno */
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.texto li {
+    background: rgba(255, 255, 255, 0.03); /* Fundo muito subtil */
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    padding: 20px 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #e0e6ed;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.texto li:hover {
+    transform: translateY(-8px); /* Efeito de elevação do cartão */
+    border-color: #00bcd4;
+    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.15);
+    color: #fff;
+}
+
+/* SEÇÃO DE VÍDEO (Aplica-se à pagina3) */
+.secao-video {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.titulo-video {
+    margin-bottom: 20px;
+}
+
+.video-iframe {
+    border: 2px solid rgba(0, 188, 212, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.video-iframe:hover {
+    transform: scale(1.02);
+}
+
+.rodape-portfolio {
+    margin-top: 60px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #718096;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+#canvas-particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Garante que fica atrás do texto e dos cartões */
+    pointer-events: none; /* Impede que o canvas bloqueie os cliques nos botões/links */
+}
+
+
+/* ==========================================================================
+   BARRA DE ROLAGEM PERSONALIZADA (Estilo Cyber/Tech)
+   ========================================================================== */
+
+/* 1. Define a largura e estrutura da barra global */
+::-webkit-scrollbar {
+    width: 10px;               /* Largura da barra vertical */
+    height: 10px;              /* Altura da barra horizontal (se existir) */
+}
+
+/* 2. O fundo da calha por onde a barra desliza (Track) */
+::-webkit-scrollbar-track {
+    background: #0f111a;       /* Cor preta/azulada idêntica ao fundo do seu site */
+    border-left: 1px solid rgba(0, 188, 212, 0.1); /* Uma linha divisória quase invisível em ciano */
+}
+
+/* 3. O indicador que o utilizador arrasta (Thumb) */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 188, 212, 0.25); /* Ciano translúcido para ser discreto enquanto lê */
+    border-radius: 10px;       /* Bordas totalmente arredondadas para um aspeto moderno */
+    border: 2px solid #0f111a; /* Truque visual: cria uma margem invisível com a cor do fundo */
+    transition: background 0.3s ease;
+}
+
+/* 4. Micro-interação: Quando o utilizador passa o rato ou arrasta a barra */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 188, 212, 0.8); /* O ciano acende com intensidade */
+}
+
+/* 5. Compatibilidade extra para o navegador Mozilla Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 188, 212, 0.3) #0f111a;
+}
+
+
+/* ==========================================================================
+   INDICADOR DE PÁGINA ATIVA NO MENU
+   ========================================================================== */
+.links li a.ativo {
+    color: #00bcd4; /* Ciano puro */
+    text-shadow: 0 0 12px rgba(0, 188, 212, 0.9); /* Brilho neon mais intenso */
+    border-bottom: 2px solid #00bcd4; /* Linha de sublinhado elegante */
+    padding-bottom: 5px; /* Afasta ligeiramente a linha do texto */
+}
+
+
+/* ==========================================================================
+   RESPONSIVIDADE - TABLETS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .links ul {
+        gap: 20px;
+        padding: 15px 10px;
+        flex-wrap: wrap;
+    }
+
+    .links li a {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .foto-perfil {
+        width: 180px;
+        height: 180px;
+    }
+
+    .texto {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    .texto ul {
+        gap: 12px;
+    }
+
+    .texto li {
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+
+    .secao-video {
+        padding: 0 15px;
+    }
+
+    .video-iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE - SMARTPHONES
+   ========================================================================== */
+@media (max-width: 480px) {
+    .links ul {
+        gap: 12px;
+        padding: 12px 8px;
+    }
+
+    .links li a {
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .foto-perfil {
+        width: 140px;
+        height: 140px;
+        margin: 20px auto;
+    }
+
+    .texto {
+        font-size: 15px;
+        padding: 0 15px;
+    }
+
+    .texto li {
+        padding: 12px 16px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    hr {
+        width: 85%;
+    }
+}

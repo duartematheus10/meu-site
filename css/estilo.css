@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@300;400;600&display=swap');
+
+body {
+    background-image: url(../img/fundoo.png);
+    background-color: #0f111a;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: #e0e6ed;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Ajuda a empurrar o rodapé para o fundo */
+}
+
+/* Animação de entrada suave */
+@keyframes entradaSuave {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body > * {
+    animation: entradaSuave 0.8s ease-out forwards;
+}
+
+header {
+    text-align: center; 
+    margin-top: 8vh; /* Dá um respiro no topo da página */
+    margin-bottom: 40px;
+}
+
+.titulo-topo {
+    font-family: 'Fira Code', monospace;
+    color: #00bcd4;
+    font-size: 3.5rem;
+    text-shadow: 0 0 20px rgba(0, 188, 212, 0.4); /* Brilho neon no título */
+    margin-bottom: 10px;
+}
+
+/* Estilo para o seu nome abaixo do título */
+header h1:not(.titulo-topo) {
+    font-size: 1.8rem;
+    color: #a0aec0;
+    font-weight: 300;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.5), transparent);
+    margin: 20px auto 40px auto;
+    width: 60%;
+}
+
+/* NAVBAR COM GLASSMORPHISM */
+.links ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: rgba(15, 17, 26, 0.7);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 188, 212, 0.2);
+    border-bottom: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+.links li a {
+    text-decoration: none;
+    color: #e0e6ed;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.links li a:hover {
+    color: #00bcd4;
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.6);
+}
+
+.rodape-portfolio {
+    margin-top: auto;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #718096;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* --- EFEITO MÁQUINA DE ESCREVER --- */
+/* Cria a barra vertical que pisca a imitar o cursor do terminal */
+#nome-digitado::after {
+    content: '|';
+    color: #00bcd4;
+    animation: piscarCursor 0.8s infinite;
+}
+
+@keyframes piscarCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- CANVAS DAS PARTÍCULAS --- */
+/* Fixa as partículas no fundo, atrás de todo o conteúdo */
+#canvas-particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Garante que fica atrás do texto e dos cartões */
+    pointer-events: none; /* Impede que o canvas bloqueie os cliques nos botões/links */
+}
+
+
+/* ==========================================================================
+   BARRA DE ROLAGEM PERSONALIZADA (Estilo Cyber/Tech)
+   ========================================================================== */
+
+/* 1. Define a largura e estrutura da barra global */
+::-webkit-scrollbar {
+    width: 10px;               /* Largura da barra vertical */
+    height: 10px;              /* Altura da barra horizontal (se existir) */
+}
+
+/* 2. O fundo da calha por onde a barra desliza (Track) */
+::-webkit-scrollbar-track {
+    background: #0f111a;       /* Cor preta/azulada idêntica ao fundo do seu site */
+    border-left: 1px solid rgba(0, 188, 212, 0.1); /* Uma linha divisória quase invisível em ciano */
+}
+
+/* 3. O indicador que o utilizador arrasta (Thumb) */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 188, 212, 0.25); /* Ciano translúcido para ser discreto enquanto lê */
+    border-radius: 10px;       /* Bordas totalmente arredondadas para um aspeto moderno */
+    border: 2px solid #0f111a; /* Truque visual: cria uma margem invisível com a cor do fundo */
+    transition: background 0.3s ease;
+}
+
+/* 4. Micro-interação: Quando o utilizador passa o rato ou arrasta a barra */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 188, 212, 0.8); /* O ciano acende com intensidade */
+}
+
+/* 5. Compatibilidade extra para o navegador Mozilla Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 188, 212, 0.3) #0f111a;
+}
+
+
+/* ==========================================================================
+   INDICADOR DE PÁGINA ATIVA NO MENU
+   ========================================================================== */
+.links li a.ativo {
+    color: #00bcd4; /* Ciano puro */
+    text-shadow: 0 0 12px rgba(0, 188, 212, 0.9); /* Brilho neon mais intenso */
+    border-bottom: 2px solid #00bcd4; /* Linha de sublinhado elegante */
+    padding-bottom: 5px; /* Afasta ligeiramente a linha do texto */
+}
+
+
+/* ==========================================================================
+   RESPONSIVIDADE - TABLETS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .titulo-topo {
+        font-size: 2.4rem;
+    }
+
+    header h1:not(.titulo-topo) {
+        font-size: 1.3rem;
+        padding: 0 15px;
+    }
+
+    header {
+        margin-top: 6vh;
+        margin-bottom: 25px;
+    }
+
+    .links ul {
+        gap: 20px;
+        padding: 15px 10px;
+        flex-wrap: wrap;
+    }
+
+    .links li a {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE - SMARTPHONES
+   ========================================================================== */
+@media (max-width: 480px) {
+    .titulo-topo {
+        font-size: 1.8rem;
+    }
+
+    header h1:not(.titulo-topo) {
+        font-size: 1.1rem;
+    }
+
+    .links ul {
+        gap: 12px;
+        padding: 12px 8px;
+    }
+
+    .links li a {
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+}

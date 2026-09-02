@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@300;400;600&display=swap');
+
+body {
+    background-image: url(../img/fundoo.png);
+    background-color: #0f111a;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: #e0e6ed;
+    margin: 0;
+}
+
+@keyframes entradaSuave {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body > * { animation: entradaSuave 0.8s ease-out forwards; }
+
+h1, h2 {
+    font-family: 'Fira Code', monospace;
+    color: #00bcd4;
+}
+
+/* NAVBAR (Mantendo a consistência) */
+.links ul {
+    list-style: none; margin: 0; padding: 20px 0;
+    display: flex; justify-content: center; gap: 40px;
+    background: rgba(15, 17, 26, 0.7); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+.links li a {
+    text-decoration: none; color: #e0e6ed; font-size: 18px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease;
+}
+
+.links li a:hover { color: #00bcd4; text-shadow: 0 0 8px rgba(0, 188, 212, 0.6); }
+
+/* TÍTULOS E REDES SOCIAIS */
+header { text-align: center; margin-top: 40px; }
+
+.titulo-principal-contato {
+    border: 1px solid rgba(0, 188, 212, 0.5);
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 8px;
+    background: rgba(0, 188, 212, 0.05);
+}
+
+.texto { text-align: center; font-size: 18px; color: #a0aec0; margin: 20px auto; max-width: 700px; }
+
+hr {
+    border: 0; height: 1px; width: 60%;
+    background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.5), transparent);
+    margin: 20px auto 40px auto;
+}
+
+.contatos ul {
+    list-style: none; padding: 0; display: flex; justify-content: center; gap: 40px;
+}
+
+.contatos li a {
+    text-decoration: none; color: #e0e6ed; font-size: 20px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.contatos li a:hover { transform: translateY(-5px); color: #00bcd4; }
+
+.icone { width: 50px; height: 50px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+
+/* O FORMULÁRIO COM GLASSMORPHISM */
+.titulo-secao-form { text-align: center; margin-top: 50px; margin-bottom: 20px; }
+
+.formulario-contato {
+    width: 100%; max-width: 600px; margin: 0 auto 50px auto;
+    background: rgba(25, 28, 41, 0.7); /* Fundo escuro do painel */
+    backdrop-filter: blur(12px); /* Efeito vidro */
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.campo { margin-bottom: 25px; }
+
+.campo label {
+    display: block; font-size: 16px; color: #00bcd4; margin-bottom: 8px; font-family: 'Fira Code', monospace;
+}
+
+.campo input, .campo textarea {
+    width: 100%; padding: 15px; font-size: 16px;
+    background: rgba(0, 0, 0, 0.3); /* Caixas de texto escuras */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff; border-radius: 8px; box-sizing: border-box;
+    font-family: 'Inter', sans-serif; transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo input:focus, .campo textarea:focus {
+    outline: none; border-color: #00bcd4; box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+}
+
+button#btnEnviar {
+    background: linear-gradient(135deg, #00bcd4, #008ba3);
+    color: white; padding: 15px 30px; font-size: 18px; font-weight: bold;
+    border: none; border-radius: 8px; cursor: pointer; display: block; width: 100%;
+    margin-top: 10px; font-family: 'Inter', sans-serif; letter-spacing: 1px;
+    transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+}
+
+button#btnEnviar:hover {
+    transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 188, 212, 0.5);
+}
+
+#resultado-form {
+    display: none; text-align: center; margin-top: 25px; padding: 15px;
+    font-weight: bold; font-size: 16px; border-radius: 8px; backdrop-filter: blur(5px);
+}
+
+.rodape-portfolio {
+    margin-top: 60px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #718096;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+#canvas-particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Garante que fica atrás do texto e dos cartões */
+    pointer-events: none; /* Impede que o canvas bloqueie os cliques nos botões/links */
+}
+
+
+/* ==========================================================================
+   BARRA DE ROLAGEM PERSONALIZADA (Estilo Cyber/Tech)
+   ========================================================================== */
+
+/* 1. Define a largura e estrutura da barra global */
+::-webkit-scrollbar {
+    width: 10px;               /* Largura da barra vertical */
+    height: 10px;              /* Altura da barra horizontal (se existir) */
+}
+
+/* 2. O fundo da calha por onde a barra desliza (Track) */
+::-webkit-scrollbar-track {
+    background: #0f111a;       /* Cor preta/azulada idêntica ao fundo do seu site */
+    border-left: 1px solid rgba(0, 188, 212, 0.1); /* Uma linha divisória quase invisível em ciano */
+}
+
+/* 3. O indicador que o utilizador arrasta (Thumb) */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 188, 212, 0.25); /* Ciano translúcido para ser discreto enquanto lê */
+    border-radius: 10px;       /* Bordas totalmente arredondadas para um aspeto moderno */
+    border: 2px solid #0f111a; /* Truque visual: cria uma margem invisível com a cor do fundo */
+    transition: background 0.3s ease;
+}
+
+/* 4. Micro-interação: Quando o utilizador passa o rato ou arrasta a barra */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 188, 212, 0.8); /* O ciano acende com intensidade */
+}
+
+/* 5. Compatibilidade extra para o navegador Mozilla Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 188, 212, 0.3) #0f111a;
+}
+
+
+/* ==========================================================================
+   INDICADOR DE PÁGINA ATIVA NO MENU
+   ========================================================================== */
+.links li a.ativo {
+    color: #00bcd4; /* Ciano puro */
+    text-shadow: 0 0 12px rgba(0, 188, 212, 0.9); /* Brilho neon mais intenso */
+    border-bottom: 2px solid #00bcd4; /* Linha de sublinhado elegante */
+    padding-bottom: 5px; /* Afasta ligeiramente a linha do texto */
+}
+
+
+/* ==========================================================================
+   RESPONSIVIDADE - TABLETS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .links ul {
+        gap: 20px;
+        padding: 15px 10px;
+        flex-wrap: wrap;
+    }
+
+    .links li a {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .titulo-principal-contato {
+        font-size: 1.4rem;
+        padding: 8px 20px;
+    }
+
+    .texto {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    .contatos ul {
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .icone {
+        width: 40px;
+        height: 40px;
+    }
+
+    .formulario-contato {
+        width: 90%;
+        padding: 25px;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE - SMARTPHONES
+   ========================================================================== */
+@media (max-width: 480px) {
+    .links ul {
+        gap: 12px;
+        padding: 12px 8px;
+    }
+
+    .links li a {
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+
+    .titulo-principal-contato {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+    }
+
+    .texto {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    .contatos ul {
+        gap: 20px;
+    }
+
+    .contatos li a {
+        font-size: 16px;
+    }
+
+    .icone {
+        width: 34px;
+        height: 34px;
+    }
+
+    .formulario-contato {
+        width: 92%;
+        padding: 18px;
+        border-radius: 10px;
+    }
+
+    .campo input, .campo textarea {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    button#btnEnviar {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}

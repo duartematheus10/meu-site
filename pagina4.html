@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+
+    <link rel="stylesheet" href="css/estilo3.css"> 
+</head>
+<body>
+
+  <canvas id="canvas-particulas"></canvas>
+    
+  <nav class="links">
+    <ul>
+      <li><strong><a href="index.html" title="Página inicial">Página inicial</a></strong></li>
+      <li><strong><a href="pagina2.html" title="Sobre mim">Sobre mim</a></strong></li>
+      <li><strong><a href="pagina3.html" title="Portfólio">Portfólio</a></strong></li>
+      <li><strong><a href="pagina4.html" title="Contato">Contato</a></strong></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1 class="titulo-principal-contato">Contato:</h1>
+  </header>
+  
+  <h2 class="texto">Interessado em colaborar ou discutir novas oportunidades? Envie-me uma mensagem através das redes abaixo:</h2>
+  <hr>
+    
+  <nav class="contatos">
+    <ul>
+      <li>
+        <a href="https://www.instagram.com/duartematheuss/" target="_blank" rel="noopener noreferrer">
+          <img src="img/instagram.png" alt="Ícone Instagram" class="icone">
+          Instagram
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/matheus-duarte-86b69b380" target="_blank" rel="noopener noreferrer">
+          <img src="img/linkedin.png" alt="Ícone LinkedIn" class="icone">
+          Linkedin
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/duartematheus10" target="_blank" rel="noopener noreferrer">
+          <img src="img/github.png" alt="Ícone Github" class="icone">
+          Github
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+  <section class="formulario-contato">
+      <h2 class="titulo-secao-form">Deixe sua mensagem:</h2>
+      
+      <form id="formContato">
+          <div class="campo">
+              <label for="nome">Nome Completo:</label>
+              <input type="text" id="nome" placeholder="Digite seu nome">
+          </div>
+          
+          <div class="campo">
+              <label for="email">E-mail:</label>
+              <input type="text" id="email" placeholder="exemplo@email.com">
+          </div>
+
+          <div class="campo">
+              <label for="mensagem">Sua Mensagem:</label>
+              <textarea id="mensagem" rows="4" placeholder="Como posso ajudar?"></textarea>
+          </div>
+
+          <button type="submit" id="btnEnviar">Enviar Mensagem</button>
+      </form>
+
+      <div id="resultado-form"></div>
+  </section>
+
+  <script src="script.js"></script>
+
+  <footer class="rodape-portfolio">
+        <p>&copy; 2025 - Matheus Duarte Louredo da Costa. Todos os direitos reservados.</p>
+    </footer>
+
+  <script src="particulas.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

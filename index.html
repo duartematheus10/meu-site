@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Duarte | Portfólio Pessoal</title>
+    <link rel="stylesheet" href="css/estilo.css"> 
+</head>
+<body>
+    <canvas id="canvas-particulas"></canvas>
+
+      <nav class="links">
+        <ul>
+            <li><strong><a href="index.html" title="Página inicial">Página inicial</a></strong></li>
+            <li><strong><a href="pagina2.html" title="Sobre mim">Sobre mim</a></strong></li>
+            <li><strong><a href="pagina3.html" title="Portfólio">Portfólio</a></strong></li>
+            <li><strong><a href="pagina4.html" title=\"Contato\">Contato</a></strong></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1 class="titulo-topo">Portfólio Pessoal</h1>
+        <hr>
+        <h1 id="nome-digitado"></h1>
+    </header> 
+    
+    <script src="particulas.js"></script>
+
+    <script>
+        const textoParaDigitar = "Matheus Duarte Louredo da Costa";
+        const elementoNome = document.getElementById("nome-digitado");
+        let contadorLetras = 0;
+
+        function digitar() {
+            if (contadorLetras < textoParaDigitar.length) {
+                // Adiciona a próxima letra ao HTML
+                elementoNome.innerHTML += textoParaDigitar.charAt(contadorLetras);
+                contadorLetras++;
+                
+                // Define a velocidade da digitação (100 milissegundos por letra)
+                setTimeout(digitar, 100); 
+            }
+        }
+
+        // Inicia a função assim que a janela carrega
+        window.onload = function() {
+            setTimeout(digitar, 500); // Aguarda meio segundo antes de começar a escrever
+        };
+    </script>
+
+    <script src="menu.js"></script>
+    
+    <footer class="rodape-portfolio">
+        <p>&copy; 2025 - Matheus Duarte Louredo da Costa. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
